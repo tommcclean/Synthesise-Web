@@ -1,43 +1,54 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        synthesise
-      </h1>
-      <h2 class="subtitle">
-        My stylish Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-    </div>
-  </section>
+  <div class="page-wrapper">
+    <overlay>
+      <modal>
+        <p>Test</p>
+      </modal>
+      <navigation-bar></navigation-bar>
+
+      <section class="container">
+        <div class="text-center">
+          <clock></clock>
+          <weather></weather>
+        </div>
+      </section>
+
+      <tile-container></tile-container>
+    </overlay>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import navigationBar from '@/components/navigation-bar.vue'
+import tileContainer from '@/components/tile-container.vue'
+import clock from '@/components/widgets/clock.vue'
+import weather from '@/components/widgets/weather.vue'
+import overlay from '@/components/display/overlay.vue'
+import modal from '@/components/display/modal.vue'
 
 export default {
   components: {
-    Logo
+    navigationBar,
+    tileContainer,
+    clock,
+    weather,
+    overlay,
+    modal
   }
 }
 </script>
 
 <style>
+.page-wrapper {
+  background-image: url('¬~assets/background.png');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;

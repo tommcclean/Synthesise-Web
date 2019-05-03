@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt />
+    <nuxt></nuxt>
   </div>
 </template>
 
@@ -15,6 +15,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.animated.animate-fast {
+  animation-duration: 0.5s;
 }
 
 *,
