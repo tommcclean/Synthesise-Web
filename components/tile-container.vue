@@ -1,29 +1,25 @@
 <template>
   <div class="container">
     <tile-item
-      tile-icon="https://www.google.com/favicon.ico"
-      tile-colour="black"
-      tile-title="Github"
-    ></tile-item>
-    <tile-item
-      tile-icon="https://www.facebook.com/favicon.ico"
-      tile-colour="blue"
-      tile-title="Facebook"
-    ></tile-item>
-    <tile-item
-      tile-icon="https://www.bbc.co.uk/favicon.ico"
-      tile-colour="purple"
-      tile-title="BBC"
-    ></tile-item>
+      v-for="tile in tiles"
+      v-bind:key="tile.title"
+      :tile-icon="tile.icon"
+      :tile-colour="tile.colour"
+      :tile-title="tile.title"
+    />
   </div>
 </template>
 
 <script>
 import tileItem from '@/components/tile.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     tileItem
+  },
+  computed: {
+    ...mapState('tiles', ['tiles'])
   }
 }
 </script>
