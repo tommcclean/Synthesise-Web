@@ -1,24 +1,33 @@
 <template>
-  <div class="card tile-item" v-bind:style="'background-color: ' + tileColour">
-    <img v-if="tileIcon" :src="tileIcon" style="width: 32px; height: 32px;" />
-    <p>{{ tileTitle }}</p>
+  <div class="tile-item" v-bind:style="'background-color: ' + colour" v-on:click="interact">
+    <img v-if="icon" :src="icon" style="width: 32px; height: 32px;" />
+    <p>{{ title }}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    tileIcon: {
+    icon: {
       type: String,
       default: ''
     },
-    tileColour: {
+    colour: {
       type: String,
       default: 'blue'
     },
-    tileTitle: {
+    title: {
       type: String,
       default: 'Google'
+    },
+    url: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    interact() {
+      window.open(this.url, '_blank')
     }
   }
 }

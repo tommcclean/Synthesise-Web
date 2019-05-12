@@ -3,9 +3,7 @@
     <tile-item
       v-for="tile in tiles"
       v-bind:key="tile.title"
-      :tile-icon="tile.icon"
-      :tile-colour="tile.colour"
-      :tile-title="tile.title"
+      v-bind="tile"
     />
   </div>
 </template>

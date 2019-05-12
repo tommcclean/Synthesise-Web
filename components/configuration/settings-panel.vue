@@ -14,7 +14,11 @@
 
     <h5 class="mb-3">Background</h5>
     <div class="d-flex align-items-center">
-      <img src="~assets/background.png" class="thumbnail" width="100px" />
+      <img src="~assets/1.png" class="thumbnail" width="100px" />
+      <img src="~assets/2.jpg" class="thumbnail" width="100px" />
+      <img src="~assets/3.jpg" class="thumbnail" width="100px" />
+      <img src="~assets/4.png" class="thumbnail" width="100px" />
+      <img src="~assets/5.jpg" class="thumbnail" width="100px" />
     </div>
     <hr />
 

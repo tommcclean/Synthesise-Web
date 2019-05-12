@@ -1,19 +1,16 @@
 <template>
   <div class="page-wrapper">
     <overlay>
-      <modal>
-        <p>Test</p>
-      </modal>
-      <navigation-bar></navigation-bar>
+      <navigation-bar />
 
       <section class="container">
         <div class="text-center">
-          <clock></clock>
-          <weather></weather>
+          <clock />
+          <weather />
         </div>
       </section>
 
-      <tile-container></tile-container>
+      <tile-container />
     </overlay>
   </div>
 </template>
@@ -24,7 +21,6 @@ import tileContainer from '@/components/tile-container.vue'
 import clock from '@/components/widgets/clock.vue'
 import weather from '@/components/widgets/weather.vue'
 import overlay from '@/components/display/overlay.vue'
-import modal from '@/components/display/modal.vue'
 
 export default {
   components: {
@@ -32,15 +28,14 @@ export default {
     tileContainer,
     clock,
     weather,
-    overlay,
-    modal
+    overlay
   }
 }
 </script>
 
 <style>
 .page-wrapper {
-  background-image: url('¬~assets/background.png');
+  background-image: url('¬~assets/5.jpg');
   background-size: cover;
   background-position: center center;
   height: 100vh;
