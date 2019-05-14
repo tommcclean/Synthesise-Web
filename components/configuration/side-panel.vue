@@ -1,7 +1,7 @@
 <template>
-  <overlay v-if="show" v-on:interacted="show = false">
+  <overlay v-if="show">
     <div class="side-panel" v-bind:class="additionalClasses">
-      <slot></slot>
+      <slot v-on:close="$emit('close')"></slot>
     </div>
   </overlay>
 </template>
@@ -14,14 +14,13 @@ export default {
     overlay
   },
   props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
     slideDirection: {
       type: String,
       default: 'left'
-    }
-  },
-  data() {
-    return {
-      show: false
     }
   },
   computed: {
@@ -44,6 +43,17 @@ export default {
   width: 350px;
   color: black;
   padding: 20px;
+
+  .input-section{
+    margin-bottom: 15px;
+  }
+
+  input {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    width: 100%;
+  }
 
   @media (max-width: 600px) {
     width: 100%;

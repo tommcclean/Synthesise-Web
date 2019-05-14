@@ -3,48 +3,49 @@
     <div class="left-panel">
       <font-awesome-icon
         :icon="['fas', 'bars']"
-        @click="toggleSidePanel($refs.menu)"
+        @click="showMenu = true"
       >
       </font-awesome-icon>
     </div>
     <div class="right-panel">
       <font-awesome-icon
         :icon="['fas', 'user-circle']"
-        @click="toggleSidePanel($refs.account)"
+        @click="showAccount = true"
       >
       </font-awesome-icon>
       <font-awesome-icon
         :icon="['fas', 'cog']"
-        @click="toggleSidePanel($refs.settings)"
+        @click="showSettings = true"
       >
       </font-awesome-icon>
     </div>
 
-    <side-panel slide-direction="left" ref="menu">
+    <side-panel slide-direction="left" ref="menu" :show="showMenu" v-on:close="showMenu = false">
       <div class="d-flex align-items-center">
         <h2 class="subtitle mb-0 p-0 flex-grow-1" style="font-size: 30px;">
           Menu
         </h2>
         <font-awesome-icon
           :icon="['fas', 'times']"
-          @click="toggleSidePanel(null)"
+          @click="showMenu = false"
         />
       </div>
       <hr />
     </side-panel>
-    <side-panel slide-direction="right" ref="account">
+    <side-panel slide-direction="right" ref="account" :show="showAccount" v-on:close="showAccount = false">
       <div class="d-flex align-items-center">
         <h2 class="subtitle mb-0 p-0 flex-grow-1" style="font-size: 30px;">
           Account
         </h2>
         <font-awesome-icon
           :icon="['fas', 'times']"
-          @click="toggleSidePanel(null)"
+          @click="showAccount = false"
         />
       </div>
       <hr />
     </side-panel>
-    <side-panel slide-direction="right" ref="settings">
+    <side-panel slide-direction="right" ref="settings" :show="showSettings" v-on:close="showSettings = false">
+      <side-panel-header name="Settings" v-on:close="showSettings = false"></side-panel-header>
       <settings-panel
         v-on:close-side-panel="toggleSidePanel(null)"
       ></settings-panel>
@@ -54,22 +55,20 @@
 
 <script>
 import sidePanel from '@/components/configuration/side-panel.vue'
+import sidePanelHeader from '@/components/configuration/side-panel-header.vue'
 import settingsPanel from '@/components/configuration/settings-panel.vue'
 
 export default {
   components: {
     sidePanel,
+    sidePanelHeader,
     settingsPanel
   },
-  methods: {
-    toggleSidePanel(panel) {
-      this.$refs.menu.show = false
-      this.$refs.account.show = false
-      this.$refs.settings.show = false
-
-      if (panel) {
-        panel.show = true
-      }
+  data() {
+    return {
+      showMenu: false,
+      showAccount: false,
+      showSettings: false
     }
   }
 }

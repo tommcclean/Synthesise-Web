@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     interact() {
-      window.open(this.url, '_blank')
+      // window.open(this.url, '_blank')
+      this.$store.dispatch('content/toggleContentEditor')
     }
   }
 }

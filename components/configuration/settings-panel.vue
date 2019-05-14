@@ -1,6 +1,5 @@
 <template>
   <div>
-    <side-panel-header name="Settings" v-on="$listeners"></side-panel-header>
     <h5 class="mb-3">Theme</h5>
     <div class="d-flex align-items-center">
       <setting-tile>
@@ -45,12 +44,10 @@
 </template>
 
 <script>
-import sidePanelHeader from '@/components/configuration/side-panel-header.vue'
 import settingTile from '@/components/configuration/setting-tile.vue'
 
 export default {
   components: {
-    sidePanelHeader,
     settingTile
   }
 }

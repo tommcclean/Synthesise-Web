@@ -10,6 +10,7 @@
         </div>
       </section>
 
+      <content-editor v-if="show" />
       <tile-container />
     </overlay>
   </div>
@@ -21,6 +22,8 @@ import tileContainer from '@/components/tile-container.vue'
 import clock from '@/components/widgets/clock.vue'
 import weather from '@/components/widgets/weather.vue'
 import overlay from '@/components/display/overlay.vue'
+import contentEditor from '@/components/content/content-editor.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -28,7 +31,11 @@ export default {
     tileContainer,
     clock,
     weather,
-    overlay
+    overlay,
+    contentEditor
+  },
+  computed: {
+    ...mapState('content', ['show'])
   }
 }
 </script>

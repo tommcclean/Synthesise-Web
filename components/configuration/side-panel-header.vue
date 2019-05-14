@@ -6,7 +6,8 @@
       </h2>
       <font-awesome-icon
         :icon="['fas', 'times']"
-        @click="$emit('close-side-panel')"
+        @click="$emit('close')"
+        style="font-size: 20px; margin-right: 10px; margin-left: 10px; cursor: pointer;"
       />
     </div>
     <hr />
